@@ -19,8 +19,7 @@ This guide provides step-by-step instructions for judges to set up and reproduce
 
 ```bash
 # 1a. Clone the repository (or extract the submitted folder)
-git clone <hackathon-repo-url>
-cd hackathon
+git clone https://github.com/sandhya025/Hackathon-E-Commerce-Agent.git
 
 # 1b. Create a Python virtual environment
 python -m venv .venv
@@ -39,13 +38,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**Expected Output**:
-```
-Successfully installed google-genai-0.1.0 requests-2.31.0 rich-13.7.0 pydantic-2.5.0
-```
-
----
-
 ## Step 2: Configure API Key
 
 ### Option A: Using `.env` file (Recommended)
@@ -53,31 +45,9 @@ Successfully installed google-genai-0.1.0 requests-2.31.0 rich-13.7.0 pydantic-2
 ```bash
 # 2a. Create .env file in the project root
 cat > .env << EOF
-GOOGLE_API_KEY=your_gemini_api_key_here
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
 EOF
 ```
-
-**To get your API key:**
-1. Visit https://aistudio.google.com/app/apikey
-2. Click "Create API Key"
-3. Copy the key and paste into `.env`
-
-### Option B: Using Environment Variable
-
-```bash
-# On Windows (PowerShell):
-$env:GOOGLE_API_KEY = "your_gemini_api_key_here"
-
-# On macOS/Linux:
-export GOOGLE_API_KEY="your_gemini_api_key_here"
-```
-
-**Verify the setup:**
-```bash
-python -c "import os; print('API Key configured' if os.getenv('GOOGLE_API_KEY') else 'API Key missing')"
-```
-
----
 
 ## Step 3: Verify Project Structure
 
@@ -111,7 +81,7 @@ ls -la E-Commerce/
 ## Step 4: Run the Baseline Evaluation
 
 ```bash
-python evaluate.py --mode baseline
+python evaluate.py baseline
 ```
 
 **Expected Output** (Baseline - Simple Prompt):
@@ -147,7 +117,7 @@ python evaluate.py --mode baseline
 ## Step 5: Run the Advanced Agent Evaluation
 
 ```bash
-python evaluate.py --mode advanced
+python evaluate.py advanced
 ```
 
 **Expected Output** (Agent - Multi-Tool Orchestrator):
@@ -355,67 +325,4 @@ python agent.py --test-case custom_case.json
 python agent.py --case 1
 ```
 
-### Issue: High API cost
-**Baseline**: ~$0.02/case (cheaper, less accurate)
-**Advanced**: ~$0.055/case (more expensive, much more accurate)
-**Total for benchmark**: ~$0.50 USD
 
----
-
-## Expected Runtimes & Costs
-
-| Scenario | Time | Cost | Notes |
-|----------|------|------|-------|
-| Baseline (10 cases) | 25 sec | $0.20 | Simple prompt, fast |
-| Agent (10 cases) | 35 sec | $0.55 | Multi-tool, accurate |
-| Single case (agent) | 3–4 sec | $0.05 | Useful for debugging |
-| Full comparison | 1 min | $0.75 | Both baseline + agent |
-
----
-
-## Verification Checklist
-
-Before submitting results:
-
-- [ ] `.env` file created with valid API key
-- [ ] `pip install -r requirements.txt` completed successfully
-- [ ] `python evaluate.py --mode baseline` runs and produces output
-- [ ] `python evaluate.py --mode advanced` runs and produces output
-- [ ] Baseline verdict accuracy is ~40%, financial accuracy ~25%
-- [ ] Agent verdict accuracy is ~95–98%, financial accuracy 100%
-- [ ] All 10 test cases pass in advanced mode
-- [ ] Memory system stores cases without errors
-- [ ] No exceptions or timeouts
-
----
-
-## Files Generated During Evaluation
-
-The evaluation process creates temporary logs (deleted after run):
-- `evaluation_results_baseline.json` — Detailed baseline results
-- `evaluation_results_advanced.json` — Detailed advanced results
-- `comparison_report.txt` — Side-by-side metrics
-
-These are for debugging and can be safely ignored.
-
----
-
-## Next Steps for Judges
-
-1. **Run baseline**: Establish "before" metrics
-2. **Run agent**: See improvement
-3. **Read IMPROVEMENT_CHANGELOG.md**: Understand the journey
-4. **View AGENT_TRAJECTORIES.md**: See reasoning for complex cases
-5. **Inspect skills/*.py**: Verify deterministic logic
-6. **Check data/store_policy.md**: See the policy ground truth
-
----
-
-## Questions?
-
-Refer to:
-- **Problem explanation**: README.md (Section 1–2)
-- **Design decisions**: README.md (Section 3–4)
-- **Iteration story**: IMPROVEMENT_CHANGELOG.md
-- **Agent reasoning**: AGENT_TRAJECTORIES.md
-- **Code details**: Comments in agent.py, skills/*.py, evaluate.py
