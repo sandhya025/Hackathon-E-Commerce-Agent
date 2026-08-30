@@ -1,11 +1,12 @@
 {
   "sarah.j@example.com": {
     "customer_name": "Sarah Jenkins",
-    "total_cases": 8,
+    "total_cases": 9,
     "fraud_flags": 0,
     "escalations": 0,
     "total_refunded": 0.0,
     "case_ids": [
+      "CASE-01-VIP-DAMAGED",
       "CASE-01-VIP-DAMAGED",
       "CASE-01-VIP-DAMAGED",
       "CASE-01-VIP-DAMAGED",

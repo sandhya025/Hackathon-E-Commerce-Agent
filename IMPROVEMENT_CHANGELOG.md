@@ -328,4 +328,3 @@ All numbers above are from running `python evaluate.py --mode advanced` against 
 - Cases: data/cases/*.json
 - Policy: data/store_policy.md
 
-See REPRODUCTION_GUIDE.md for exact commands and setup.

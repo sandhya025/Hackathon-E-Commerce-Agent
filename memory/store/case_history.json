@@ -7,7 +7,7 @@
     "refund_amount": 0,
     "reasoning": "Customer is VIP (LTV $1450, return rate 2.1%) and item is damaged under $200. Per policy section 3, VIP customers receive instant replacement with zero return shipment required for damaged claims under $200. Damage is verified by photo evidence. Carrier telemetry shows no weight discrepancy or GPS mismatch, so no fraud or carrier theft flags. Return window is open (12 days). No final sale restrictions. Therefore, instant free replacement is appropriate.",
     "was_fraud_flagged": false,
-    "resolved_at": "2026-08-30T17:42:29.211654"
+    "resolved_at": "2026-08-30T18:23:41.506554"
   },
   "CASE-02-EMPTY-BOX-FRAUD": {
     "case_id": "CASE-02-EMPTY-BOX-FRAUD",
