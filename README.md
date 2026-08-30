@@ -303,6 +303,11 @@ This evaluates the single-prompt naive approach, without the policy engine, carr
 ```bash
 python evaluate.py advanced
 ```
+### 8.3 Run the using streamlit
+
+```bash
+streamlit run dashboard.py
+```
 
 This runs the rule-aware, tool-based orchestrator and prints a scoreboard including verdict accuracy, refund accuracy, average latency, and average estimated cost.
 
