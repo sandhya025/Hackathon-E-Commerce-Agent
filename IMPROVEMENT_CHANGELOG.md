@@ -13,7 +13,6 @@ This document traces the evolution of the solution from simple baseline to full 
 - ✗ No deterministic financial calculation
 - ✗ No specialized tools
 
-**Why**: Establishes honest "before" metric per hackathon requirements.
 
 **Evidence**: 
 ```
@@ -322,7 +321,7 @@ One case (Case 10) occasionally fails due to:
 
 ## Reproducibility Note
 
-All numbers above are from running `python evaluate.py --mode advanced` against the 10 case benchmark with:
+All numbers above are from running `python evaluate.py advanced` against the 10 case benchmark with:
 - Python 3.9+
 - google-genai 0.1.0+
 - Cases: data/cases/*.json

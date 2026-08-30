@@ -288,56 +288,9 @@ The main implementation files are:
 └── .env.example (if present in your local setup)
 ```
 
----
+## 8. How to run the project
 
-## 8. Required tools and environment
-
-This project is Python-based. You need:
-
-- Python 3.10+ recommended
-- Internet access for the LLM API call
-- a valid Google API key in your environment or .env file
-- pip to install project dependencies
-
-The dependency file is [requirements.txt](requirements.txt).
-
----
-
-## 9. Setup instructions
-
-### 9.1 Create a virtual environment
-
-```bash
-python -m venv .venv
-```
-
-On Windows PowerShell:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
-```
-
-### 9.2 Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 9.3 Configure environment variables
-
-Create a `.env` file in the project root with:
-
-```env
-GOOGLE_API_KEY=your_api_key_here
-```
-
-If your environment uses a different variable name, make sure it is loaded by the evaluation code before agent execution.
-
----
-
-## 10. How to run the project
-
-### 10.1 Run the baseline
+### 8.1 Run the baseline
 
 ```bash
 python evaluate.py baseline
@@ -345,7 +298,7 @@ python evaluate.py baseline
 
 This evaluates the single-prompt naive approach, without the policy engine, carrier checks, or memory.
 
-### 10.2 Run the advanced agent
+### 8.2 Run the advanced agent
 
 ```bash
 python evaluate.py advanced
@@ -353,17 +306,9 @@ python evaluate.py advanced
 
 This runs the rule-aware, tool-based orchestrator and prints a scoreboard including verdict accuracy, refund accuracy, average latency, and average estimated cost.
 
-### 10.3 Run a single case manually
-
-You can also test one case and inspect the output. For example:
-
-```bash
-python -c "import json; from agent import solve_advanced_ticket; f=open('data/cases/case-01-vip-damaged.json'); case=json.load(f); print(solve_advanced_ticket(case))"
-```
-
 ---
 
-## 11. Evaluation rubric
+## 9. Evaluation rubric
 
 The evaluator in [evaluate.py](evaluate.py) judges each case using the following logic:
 
@@ -387,7 +332,7 @@ The program prints a final scoreboard like this:
 
 ---
 
-## 12. Required output behavior for the agent
+## 10. Required output behavior for the agent
 
 The agent is expected to output a structured JSON result, for example:
 
@@ -410,102 +355,6 @@ Important rules from the project’s decision policy:
 
 ---
 
-## 13. Submission requirements for the hackathon
-
-The project should be submitted as a complete working solution that demonstrates the full workflow and includes:
-
-### 13.1 Code deliverables
-- working baseline and advanced agent implementation
-- evaluation runner that produces benchmark metrics
-- all supporting skills and memory logic
-- clear documentation explaining the system and workflow
-
-### 13.2 Policy grounding
-- use the store policy as the primary source of truth
-- base decisions on fact-based evidence instead of unsupported assumptions
-- document how the agent handles exceptions, fraud, and financial rules
-
-### 13.3 Benchmark proof
-- run the evaluation in both modes
-- record the final scoreboard
-- confirm the advanced system outperforms the naive baseline
-
-### 13.4 Reproducibility
-- repository should run from a clean environment using the stated setup steps
-- dependencies should be installable through [requirements.txt](requirements.txt)
-- runtime configuration should be explicit and documented
-
----
-
-## 14. How we will be submitting
-
-For this project, the submission is the repository itself together with its benchmark results and explanation.
-
-### Recommended submission flow
-
-1. Finalize the project in the workspace.
-2. Make sure all required files are present and the code runs without manual setup beyond the documented instructions.
-3. Run the evaluation suite:
-
-```bash
-python evaluate.py baseline
-python evaluate.py advanced
-```
-
-4. Capture the final result logs and compare the baseline vs advanced performance.
-5. Check that the advanced agent is using the specialized policy, carrier, fraud, and financial tools correctly.
-6. Submit the repo or zip of the final project with:
-   - source code
-   - benchmark data
-   - README
-   - evaluation output summary
-
-### What the judges or reviewers will likely look for
-
-- correct implementation of the policy engine
-- proper agentic tool orchestration
-- evidence-driven decision-making
-- fraud detection and carrier validation
-- deterministic refund calculations
-- clean explanation in documentation
-
----
-
-## 15. Submission checklist
-
-Before submitting, confirm the following:
-
-- [ ] The repo includes all source files and benchmark data
-- [ ] The environment setup steps work from a clean machine
-- [ ] The `.env` API configuration is documented
-- [ ] The baseline runner executes successfully
-- [ ] The advanced runner executes successfully
-- [ ] The output shows verdict accuracy and refund accuracy
-- [ ] The README clearly explains the problem, workflow, and submission process
-- [ ] The model uses policy and evidence instead of generic guesswork
-- [ ] The financial math is deterministic and exact
-- [ ] Fraud detection and carrier checks are respected in the decision logic
-
----
-
-## 16. Final note
-
-This challenge is designed to reward a system that is not just a conversational chatbot, but a grounded, tool-using dispute resolution agent. A strong solution must combine policy logic, telemetry validation, fraud awareness, and exact financial computation.
-
-The goal is not just to answer a customer inquiry. The goal is to make the correct business decision with evidence, consistency, and auditability.
-
----
-
-## 17. Quick run summary
-
-```bash
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-# create .env with GOOGLE_API_KEY
-python evaluate.py baseline
-python evaluate.py advanced
-```
 ### The Core Achievement
 
 ```
