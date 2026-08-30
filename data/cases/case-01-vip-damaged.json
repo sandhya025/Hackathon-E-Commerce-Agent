@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-01-VIP-DAMAGED",
+  "title": "VIP Customer Received Damaged Smart Watch",
+  "customer": {
+    "name": "Sarah Jenkins",
+    "email": "sarah.j@example.com",
+    "ltv": 1450.0,
+    "orders_count": 8,
+    "historical_return_rate_pct": 2.1,
+    "tier": "VIP"
+  },
+  "order": {
+    "order_id": "ORD-1001",
+    "order_date": "2026-08-15",
+    "delivery_date": "2026-08-18",
+    "items": [
+      {
+        "sku": "WATCH-PRO-01",
+        "name": "Apex Pro Smartwatch",
+        "category": "Electronics",
+        "unit_price": 180.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 180.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 180.0
+  },
+  "carrier_telemetry": {
+    "carrier": "FedEx",
+    "tracking_number": "FX-88912301",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-18T14:22:00Z",
+    "origin_scan_weight_lbs": 1.25,
+    "destination_scale_weight_lbs": 1.23,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered to recipient front door"
+  },
+  "ticket": {
+    "subject": "Screen cracked on arrival!",
+    "message": "Hi, I just opened the smartwatch package and the front display glass is completely shattered. I need a replacement as soon as possible for my marathon this weekend. Photo attached.",
+    "photo_evidence_provided": true,
+    "photo_verified_defect": true
+  },
+  "ground_truth_verdict": {
+    "action": "INSTANT_FREE_REPLACEMENT",
+    "refund_amount": 0.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Customer is VIP (LTV $1450 >= $500, Return rate 2.1% < 5%). Damaged item under $200 qualifies for immediate 1-click replacement without requiring return shipment."
+  }
+}

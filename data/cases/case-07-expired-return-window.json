@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-07-EXPIRED-RETURN-WINDOW",
+  "title": "Return Request Past 30-Day Window",
+  "customer": {
+    "name": "Jessica Taylor",
+    "email": "jtaylor@example.com",
+    "ltv": 280.0,
+    "orders_count": 2,
+    "historical_return_rate_pct": 0.0,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1007",
+    "order_date": "2026-06-10",
+    "delivery_date": "2026-06-15",
+    "items": [
+      {
+        "sku": "SHOES-RUN-PRO",
+        "name": "Aero Sprint Running Shoes",
+        "category": "Shoes",
+        "unit_price": 140.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 140.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 140.0
+  },
+  "carrier_telemetry": {
+    "carrier": "USPS",
+    "tracking_number": "9405511299887766112233",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-06-15T11:20:00Z",
+    "origin_scan_weight_lbs": 2.1,
+    "destination_scale_weight_lbs": 2.1,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered"
+  },
+  "ticket": {
+    "subject": "Need to return shoes",
+    "message": "Hi, I bought these shoes in June and forgot about them in my closet. They are unworn in the box. Can I get a return label and refund?",
+    "photo_evidence_provided": false,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "REJECT_RETURN_EXPIRED_WINDOW",
+    "refund_amount": 0.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Delivered on June 15, 2026 (75 days ago). Section 1 strictly enforces a 30-day return window. Customer is not VIP. Politely decline return request."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-10-CHALLENGING-EDGE-TAMPERED-BARCODE",
+  "title": "Challenging Edge Case: Weight Scan Intercepted in Transit",
+  "customer": {
+    "name": "Alexander Hayes",
+    "email": "ahayes.tech@example.com",
+    "ltv": 610.0,
+    "orders_count": 4,
+    "historical_return_rate_pct": 0.0,
+    "tier": "VIP"
+  },
+  "order": {
+    "order_id": "ORD-1010",
+    "order_date": "2026-08-21",
+    "delivery_date": "2026-08-25",
+    "items": [
+      {
+        "sku": "DRONE-4K-PRO",
+        "name": "AeroGlide 4K Camera Drone",
+        "category": "Electronics",
+        "unit_price": 550.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 550.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 550.0
+  },
+  "carrier_telemetry": {
+    "carrier": "FedEx",
+    "tracking_number": "FX-1122339900",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-25T17:15:00Z",
+    "origin_scan_weight_lbs": 6.4,
+    "destination_scale_weight_lbs": 0.35,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Package was re-taped with non-standard yellow security tape at sorting hub"
+  },
+  "ticket": {
+    "subject": "Package opened and empty - VIP member requesting resolution",
+    "message": "I received my package today but the box was cut open and re-taped with yellow tape. The drone inside is missing. Since I am a VIP member, please issue my refund.",
+    "photo_evidence_provided": true,
+    "photo_verified_defect": true
+  },
+  "ground_truth_verdict": {
+    "action": "ESCALATE_CARRIER_THEFT_INVESTIGATION",
+    "refund_amount": 0.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Even though customer is VIP, the claim is $550 (> $200 VIP instant replacement ceiling) AND carrier telemetry confirms major weight drop (6.40 lbs -> 0.35 lbs) with internal hub re-taping note. This is a severe internal carrier transit theft. Escalate to Priority Carrier Claims team to coordinate insurance payout and replacement approval."
+  }
+}

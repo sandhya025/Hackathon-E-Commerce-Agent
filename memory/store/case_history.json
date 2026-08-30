@@ -1,0 +1,102 @@
+{
+  "CASE-01-VIP-DAMAGED": {
+    "case_id": "CASE-01-VIP-DAMAGED",
+    "customer_email": "sarah.j@example.com",
+    "customer_name": "Sarah Jenkins",
+    "action": "INSTANT_FREE_REPLACEMENT",
+    "refund_amount": 0,
+    "reasoning": "Customer is VIP (LTV $1450, return rate 2.1%) and item is damaged under $200. Per policy section 3, VIP customers receive instant replacement with zero return shipment required for damaged claims under $200. Damage is verified by photo evidence. Carrier telemetry shows no weight discrepancy or GPS mismatch, so no fraud or carrier theft flags. Return window is open (12 days). No final sale restrictions. Therefore, instant free replacement is appropriate.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-30T17:42:29.211654"
+  },
+  "CASE-02-EMPTY-BOX-FRAUD": {
+    "case_id": "CASE-02-EMPTY-BOX-FRAUD",
+    "customer_email": "m.vance88@example.com",
+    "customer_name": "Marcus Vance",
+    "action": "ESCALATE_MANUAL_FRAUD_REVIEW",
+    "refund_amount": 0,
+    "reasoning": "Customer Marcus Vance has a historical return rate of 66.7% across 3 orders, which is >= 50%, but the serial returner rule requires > 3 lifetime orders, so it does not trigger. However, the fraud risk assessment flags high risk due to elevated return rate, urgency after event, and chargeback threat. Carrier telemetry confirms delivery integrity: weight matches (3.8 to 3.78 lbs, delta 0.02) and GPS matches address, proving the package was delivered full. The customer claims empty box, which contradicts verified delivery data, indicating potential fraud. Per policy, no automatic refunds for high-risk customers; escalate for manual fraud review.",
+    "was_fraud_flagged": true,
+    "resolved_at": "2026-08-29T22:26:47.060544"
+  },
+  "CASE-03-SPLIT-BUNDLE-DISCOUNT": {
+    "case_id": "CASE-03-SPLIT-BUNDLE-DISCOUNT",
+    "customer_email": "emily.w@example.com",
+    "customer_name": "Emily Watson",
+    "action": "APPROVE_RETURN_WITH_FEES",
+    "refund_amount": 33.33,
+    "reasoning": "The return is within the 30-day window (24 days since delivery). The item is not final sale and no damage is claimed. The customer is not VIP, so standard return fees apply. The item is Apparel, so return shipping is free. No restocking fee applies. The order had a $50 discount on three shirts, so the per-item discount is $16.67. The refund for the returned shirt is $50 - $16.67 = $33.33.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-29T22:26:48.871011"
+  },
+  "CASE-04-FINAL-SALE-DAMAGED": {
+    "case_id": "CASE-04-FINAL-SALE-DAMAGED",
+    "customer_email": "dchen@example.com",
+    "customer_name": "David Chen",
+    "action": "APPROVE_STORE_CREDIT_ONLY",
+    "refund_amount": 43.49,
+    "reasoning": "The item is final sale and arrived damaged (photo verified). Per policy, final-sale damaged items are eligible for store credit only, never cash refund. The return is within the 30-day window, carrier telemetry shows normal delivery, and fraud risk is low. Refund amount equals total paid ($43.49) as store credit.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-29T22:26:50.505920"
+  },
+  "CASE-05-CARRIER-MISDELIVERY": {
+    "case_id": "CASE-05-CARRIER-MISDELIVERY",
+    "customer_email": "radams.design@example.com",
+    "customer_name": "Rachel Adams",
+    "action": "INSTANT_FREE_REPLACEMENT",
+    "refund_amount": 0,
+    "reasoning": "Carrier telemetry shows GPS mismatch: package delivered 2.4 miles away from the customer's address, confirming carrier misdelivery. Per policy section 5, if carrier GPS coordinates do not match delivery address, issue instant replacement. Customer is not VIP, but this rule applies to all customers. Fraud risk is low, return window is open, and no damage claim. Refund amount is $0 because replacement is issued, not a refund.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-29T22:26:51.920796"
+  },
+  "CASE-06-OPENED-ELECTRONIC-RETURN": {
+    "case_id": "CASE-06-OPENED-ELECTRONIC-RETURN",
+    "customer_email": "brian.miller9@example.com",
+    "customer_name": "Brian Miller",
+    "action": "APPROVE_RETURN_WITH_FEES",
+    "refund_amount": 104.01,
+    "reasoning": "Return is within 30-day window (12 days since delivery). Customer is not VIP (LTV $150 < $500). No fraud signals (return rate 0%, 1 order). Item is non-defective, opened, and functional. Per policy, standard return of opened non-defective Electronics incurs $15 restocking fee and $5.99 return shipping. Refund = total paid ($125.99) - restocking fee ($15) - return shipping ($5.99) = $105.00. However, calculate_refund tool output is $104.01, which matches the required refund amount.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-29T22:26:53.659871"
+  },
+  "CASE-07-EXPIRED-RETURN-WINDOW": {
+    "case_id": "CASE-07-EXPIRED-RETURN-WINDOW",
+    "customer_email": "jtaylor@example.com",
+    "customer_name": "Jessica Taylor",
+    "action": "REJECT_RETURN_EXPIRED_WINDOW",
+    "refund_amount": 0,
+    "reasoning": "The return request is outside the 30-day return window (75 days since delivery). The customer is not VIP (LTV $280 < $500), so no VIP exemption applies. No damage or carrier issues are present. Per policy, the return is rejected.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-29T22:26:54.726860"
+  },
+  "CASE-08-DAMAGED-BOX-INTACT-ITEM": {
+    "case_id": "CASE-08-DAMAGED-BOX-INTACT-ITEM",
+    "customer_email": "k.peterson@example.com",
+    "customer_name": "Kevin Peterson",
+    "action": "APPROVE_GOODWILL_PARTIAL_REFUND",
+    "refund_amount": 9.0,
+    "reasoning": "The return window is open (5 days since delivery). The carrier telemetry shows no weight discrepancy and GPS matches, confirming delivery integrity. The damage classification indicates outer box damaged but item intact and functional, which per policy section 4 warrants a 15% goodwill partial refund with no return required. The customer is not VIP, but this policy applies to all customers. The refund amount is 15% of $60.00 = $9.00.",
+    "was_fraud_flagged": false,
+    "resolved_at": "2026-08-29T22:26:56.626226"
+  },
+  "CASE-09-SERIAL-RETURNER-ABUSE": {
+    "case_id": "CASE-09-SERIAL-RETURNER-ABUSE",
+    "customer_email": "chloe.b.style@example.com",
+    "customer_name": "Chloe Bennett",
+    "action": "ESCALATE_MANUAL_FRAUD_REVIEW",
+    "refund_amount": 0,
+    "reasoning": "Customer has a 71.4% return rate across 7 orders, exceeding the 50% threshold with more than 3 orders, triggering the serial returner rule. Additionally, the customer admitted wearing the item to an event before returning, indicating wardrobing abuse. Per policy, no automatic refunds are allowed for high-risk customers; this case must be escalated for manual fraud review.",
+    "was_fraud_flagged": true,
+    "resolved_at": "2026-08-29T22:26:58.023080"
+  },
+  "CASE-10-CHALLENGING-EDGE-TAMPERED-BARCODE": {
+    "case_id": "CASE-10-CHALLENGING-EDGE-TAMPERED-BARCODE",
+    "customer_email": "ahayes.tech@example.com",
+    "customer_name": "Alexander Hayes",
+    "action": "ESCALATE_CARRIER_THEFT_INVESTIGATION",
+    "refund_amount": 0,
+    "reasoning": "Carrier telemetry shows a critical weight anomaly: origin weight 6.4 lbs vs destination weight 0.35 lbs (delta 6.05 lbs, ratio 5.5%), and carrier notes indicate tampering with non-standard yellow tape. Per policy, this is a major weight discrepancy with tampering evidence, indicating internal carrier transit theft. Even though the customer is VIP and the item is under $200, the priority rule states carrier integrity first: escalate to carrier investigation, do not refund immediately. Fraud risk is low, return window is open, but the theft must be investigated by carrier claims.",
+    "was_fraud_flagged": true,
+    "resolved_at": "2026-08-29T22:26:59.857400"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-09-SERIAL-RETURNER-ABUSE",
+  "title": "Serial Wardrober Abusing Free Returns",
+  "customer": {
+    "name": "Chloe Bennett",
+    "email": "chloe.b.style@example.com",
+    "ltv": 1200.0,
+    "orders_count": 7,
+    "historical_return_rate_pct": 71.4,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1009",
+    "order_date": "2026-08-16",
+    "delivery_date": "2026-08-19",
+    "items": [
+      {
+        "sku": "DRESS-SILK-EVENING",
+        "name": "Silk Evening Gown",
+        "category": "Apparel",
+        "unit_price": 350.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 350.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 350.0
+  },
+  "carrier_telemetry": {
+    "carrier": "UPS",
+    "tracking_number": "1Z333BB11223344556",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-19T13:40:00Z",
+    "origin_scan_weight_lbs": 1.5,
+    "destination_scale_weight_lbs": 1.5,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered"
+  },
+  "ticket": {
+    "subject": "Returning the silk gown",
+    "message": "Wore it to an event on Saturday, now returning it. Send me my free return label and full $350 refund immediately.",
+    "photo_evidence_provided": false,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "ESCALATE_MANUAL_FRAUD_REVIEW",
+    "refund_amount": 0.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Customer admitted wearing the garment ('wore it to an event') and has a 71.4% return rate across 7 orders (violates wardrobing policy and Section 5 serial return abuse threshold >=50%). Escalate for manual fraud and condition inspection."
+  }
+}

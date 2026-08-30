@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-04-FINAL-SALE-DAMAGED",
+  "title": "Damaged Final Sale Clearance Item",
+  "customer": {
+    "name": "David Chen",
+    "email": "dchen@example.com",
+    "ltv": 210.0,
+    "orders_count": 1,
+    "historical_return_rate_pct": 0.0,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1004",
+    "order_date": "2026-08-12",
+    "delivery_date": "2026-08-16",
+    "items": [
+      {
+        "sku": "CERAMIC-VASE-CLR",
+        "name": "Artisan Ceramic Vase",
+        "category": "Home",
+        "unit_price": 75.0,
+        "qty": 1,
+        "final_sale": true
+      }
+    ],
+    "subtotal": 75.0,
+    "discount_applied": 37.5,
+    "shipping_fee": 5.99,
+    "total_paid": 43.49
+  },
+  "carrier_telemetry": {
+    "carrier": "FedEx",
+    "tracking_number": "FX-90023411",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-16T10:12:00Z",
+    "origin_scan_weight_lbs": 4.1,
+    "destination_scale_weight_lbs": 4.05,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered to door"
+  },
+  "ticket": {
+    "subject": "Clearance vase arrived in pieces",
+    "message": "I know this was a clearance sale item, but it arrived smashed into shards. I want a refund back to my Visa card.",
+    "photo_evidence_provided": true,
+    "photo_verified_defect": true
+  },
+  "ground_truth_verdict": {
+    "action": "APPROVE_STORE_CREDIT_ONLY",
+    "refund_amount": 43.49,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Item is marked final_sale: True. Per Section 2 of Store Policy, damaged final-sale items receive Store Credit Only ($43.49), never cash refund to original payment method. No return shipment required for broken ceramic."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "case_id": "CASE-06-OPENED-ELECTRONIC-RETURN",
+  "title": "Opened Non-Defective Electronics Return",
+  "customer": {
+    "name": "Brian Miller",
+    "email": "brian.miller9@example.com",
+    "ltv": 150.0,
+    "orders_count": 1,
+    "historical_return_rate_pct": 0.0,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1006",
+    "order_date": "2026-08-14",
+    "delivery_date": "2026-08-17",
+    "items": [
+      {
+        "sku": "KEYBOARD-MECH-RGB",
+        "name": "Pro Wireless Mechanical Keyboard",
+        "category": "Electronics",
+        "unit_price": 120.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 120.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 5.99,
+    "total_paid": 125.99
+  },
+  "carrier_telemetry": {
+    "carrier": "FedEx",
+    "tracking_number": "FX-44910293",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-17T12:00:00Z",
+    "origin_scan_weight_lbs": 2.8,
+    "destination_scale_weight_lbs": 2.8,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered"
+  },
+  "ticket": {
+    "subject": "Want to return keyboard - don't like key switches",
+    "message": "I unboxed the keyboard and used it for 2 days. It works fine, but the switches are too clicky for my office. I want to return it for a refund.",
+    "photo_evidence_provided": false,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "APPROVE_RETURN_WITH_FEES",
+    "refund_amount": 99.01,
+    "return_shipment_required": true,
+    "restocking_fee": 15.0,
+    "return_shipping_deduction": 5.99,
+    "policy_reasoning": "Opened non-defective electronics item is subject to $15.00 restocking fee and $5.99 return shipping deduction. Net refund on $120 item = $120 - $15 - $5.99 = $99.01 (original shipping fee not refunded)."
+  }
+}

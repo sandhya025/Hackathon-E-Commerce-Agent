@@ -1,0 +1,70 @@
+{
+  "case_id": "CASE-03-SPLIT-BUNDLE-DISCOUNT",
+  "title": "Partial Return of Buy-2-Get-1-Free Bundle",
+  "customer": {
+    "name": "Emily Watson",
+    "email": "emily.w@example.com",
+    "ltv": 320.0,
+    "orders_count": 2,
+    "historical_return_rate_pct": 0.0,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1003",
+    "order_date": "2026-08-01",
+    "delivery_date": "2026-08-05",
+    "items": [
+      {
+        "sku": "SHIRT-LINEN-01",
+        "name": "Classic Linen Shirt",
+        "category": "Apparel",
+        "unit_price": 50.0,
+        "qty": 1,
+        "final_sale": false
+      },
+      {
+        "sku": "SHIRT-LINEN-02",
+        "name": "Classic Linen Shirt (Blue)",
+        "category": "Apparel",
+        "unit_price": 50.0,
+        "qty": 1,
+        "final_sale": false
+      },
+      {
+        "sku": "SHIRT-LINEN-03",
+        "name": "Classic Linen Shirt (Olive)",
+        "category": "Apparel",
+        "unit_price": 50.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 150.0,
+    "discount_applied": 50.0,
+    "shipping_fee": 0.0,
+    "total_paid": 100.0
+  },
+  "carrier_telemetry": {
+    "carrier": "USPS",
+    "tracking_number": "9400111899223344556677",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-05T16:45:00Z",
+    "origin_scan_weight_lbs": 1.9,
+    "destination_scale_weight_lbs": 1.9,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered in mailbox"
+  },
+  "ticket": {
+    "subject": "Want to return the Olive Linen Shirt",
+    "message": "I love the first two shirts, but the Olive one doesn't suit my complexion. I want to return the Olive shirt for a $50 refund please.",
+    "photo_evidence_provided": false,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "APPROVE_PARTIAL_REFUND_WITH_RMA",
+    "refund_amount": 0.0,
+    "return_shipment_required": true,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Customer bought 3 shirts under Buy-2-Get-1-Free promo for $100 ($50 off). Returning 1 shirt leaves 2 shirts ($100 standard price). Recalculated total owed is $100, meaning refund amount is $0.00 if returning the free item, or store credit adjusted. Apparel return shipping is free."
+  }
+}

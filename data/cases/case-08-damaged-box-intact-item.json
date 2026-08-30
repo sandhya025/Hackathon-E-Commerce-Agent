@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-08-DAMAGED-BOX-INTACT-ITEM",
+  "title": "Damaged Outer Box with Intact Product",
+  "customer": {
+    "name": "Kevin Peterson",
+    "email": "k.peterson@example.com",
+    "ltv": 380.0,
+    "orders_count": 3,
+    "historical_return_rate_pct": 0.0,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1008",
+    "order_date": "2026-08-20",
+    "delivery_date": "2026-08-24",
+    "items": [
+      {
+        "sku": "ESPRESSO-POT-SS",
+        "name": "Stainless Steel Espresso Maker",
+        "category": "Home",
+        "unit_price": 60.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 60.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 60.0
+  },
+  "carrier_telemetry": {
+    "carrier": "FedEx",
+    "tracking_number": "FX-77610022",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-24T16:10:00Z",
+    "origin_scan_weight_lbs": 3.0,
+    "destination_scale_weight_lbs": 3.0,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Outer carton creased"
+  },
+  "ticket": {
+    "subject": "The shipping box was beat up and torn",
+    "message": "The outer packaging was severely crushed. The espresso maker itself seems fine and works, but for a new purchase the packaging looked terrible. What can you do for me?",
+    "photo_evidence_provided": true,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "APPROVE_GOODWILL_PARTIAL_REFUND",
+    "refund_amount": 9.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Per Section 4, if packaging is damaged but the product inside is intact and functional, offer a 15% goodwill partial refund (15% of $60.00 = $9.00), with no return shipment required."
+  }
+}

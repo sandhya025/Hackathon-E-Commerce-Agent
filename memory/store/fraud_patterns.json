@@ -1,0 +1,109 @@
+{
+  "sarah.j@example.com": {
+    "customer_name": "Sarah Jenkins",
+    "total_cases": 8,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 0.0,
+    "case_ids": [
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED",
+      "CASE-01-VIP-DAMAGED"
+    ]
+  },
+  "m.vance88@example.com": {
+    "customer_name": "Marcus Vance",
+    "total_cases": 1,
+    "fraud_flags": 1,
+    "escalations": 1,
+    "total_refunded": 0.0,
+    "case_ids": [
+      "CASE-02-EMPTY-BOX-FRAUD"
+    ]
+  },
+  "emily.w@example.com": {
+    "customer_name": "Emily Watson",
+    "total_cases": 1,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 33.33,
+    "case_ids": [
+      "CASE-03-SPLIT-BUNDLE-DISCOUNT"
+    ]
+  },
+  "dchen@example.com": {
+    "customer_name": "David Chen",
+    "total_cases": 1,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 43.49,
+    "case_ids": [
+      "CASE-04-FINAL-SALE-DAMAGED"
+    ]
+  },
+  "radams.design@example.com": {
+    "customer_name": "Rachel Adams",
+    "total_cases": 1,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 0.0,
+    "case_ids": [
+      "CASE-05-CARRIER-MISDELIVERY"
+    ]
+  },
+  "brian.miller9@example.com": {
+    "customer_name": "Brian Miller",
+    "total_cases": 1,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 104.01,
+    "case_ids": [
+      "CASE-06-OPENED-ELECTRONIC-RETURN"
+    ]
+  },
+  "jtaylor@example.com": {
+    "customer_name": "Jessica Taylor",
+    "total_cases": 1,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 0.0,
+    "case_ids": [
+      "CASE-07-EXPIRED-RETURN-WINDOW"
+    ]
+  },
+  "k.peterson@example.com": {
+    "customer_name": "Kevin Peterson",
+    "total_cases": 1,
+    "fraud_flags": 0,
+    "escalations": 0,
+    "total_refunded": 9.0,
+    "case_ids": [
+      "CASE-08-DAMAGED-BOX-INTACT-ITEM"
+    ]
+  },
+  "chloe.b.style@example.com": {
+    "customer_name": "Chloe Bennett",
+    "total_cases": 1,
+    "fraud_flags": 1,
+    "escalations": 1,
+    "total_refunded": 0.0,
+    "case_ids": [
+      "CASE-09-SERIAL-RETURNER-ABUSE"
+    ]
+  },
+  "ahayes.tech@example.com": {
+    "customer_name": "Alexander Hayes",
+    "total_cases": 1,
+    "fraud_flags": 1,
+    "escalations": 1,
+    "total_refunded": 0.0,
+    "case_ids": [
+      "CASE-10-CHALLENGING-EDGE-TAMPERED-BARCODE"
+    ]
+  }
+}

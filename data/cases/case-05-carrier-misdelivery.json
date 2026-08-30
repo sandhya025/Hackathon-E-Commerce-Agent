@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-05-CARRIER-MISDELIVERY",
+  "title": "Delivered Status but GPS Location Mismatch",
+  "customer": {
+    "name": "Rachel Adams",
+    "email": "radams.design@example.com",
+    "ltv": 450.0,
+    "orders_count": 4,
+    "historical_return_rate_pct": 0.0,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1005",
+    "order_date": "2026-08-18",
+    "delivery_date": "2026-08-22",
+    "items": [
+      {
+        "sku": "DESK-LAMP-LED",
+        "name": "Architect LED Desk Lamp",
+        "category": "Home",
+        "unit_price": 89.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 89.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 89.0
+  },
+  "carrier_telemetry": {
+    "carrier": "UPS",
+    "tracking_number": "1Z555AA99887766554",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-22T15:30:00Z",
+    "origin_scan_weight_lbs": 3.2,
+    "destination_scale_weight_lbs": 3.2,
+    "gps_match_address": false,
+    "carrier_exception_notes": "GPS scan shows driver delivered 2.4 miles away at wrong street address"
+  },
+  "ticket": {
+    "subject": "Tracking says delivered but nothing is here",
+    "message": "UPS tracking shows delivered at 3:30 PM today, but I was home and nothing was dropped off. I checked with my neighbors too.",
+    "photo_evidence_provided": false,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "INSTANT_FREE_REPLACEMENT",
+    "refund_amount": 0.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "Carrier telemetry confirms gps_match_address: False (misdelivered 2.4 miles away). Per Section 5, issue instant replacement and file back-office carrier misdelivery claim."
+  }
+}

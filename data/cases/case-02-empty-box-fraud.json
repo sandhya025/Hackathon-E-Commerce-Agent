@@ -1,0 +1,54 @@
+{
+  "case_id": "CASE-02-EMPTY-BOX-FRAUD",
+  "title": "Empty Box Claim with Critical Weight Delta",
+  "customer": {
+    "name": "Marcus Vance",
+    "email": "m.vance88@example.com",
+    "ltv": 920.0,
+    "orders_count": 3,
+    "historical_return_rate_pct": 66.7,
+    "tier": "Standard"
+  },
+  "order": {
+    "order_id": "ORD-1002",
+    "order_date": "2026-08-10",
+    "delivery_date": "2026-08-14",
+    "items": [
+      {
+        "sku": "AUDIO-NOISE-MAX",
+        "name": "Studio Master Headphones",
+        "category": "Electronics",
+        "unit_price": 420.0,
+        "qty": 1,
+        "final_sale": false
+      }
+    ],
+    "subtotal": 420.0,
+    "discount_applied": 0.0,
+    "shipping_fee": 0.0,
+    "total_paid": 420.0
+  },
+  "carrier_telemetry": {
+    "carrier": "UPS",
+    "tracking_number": "1Z999AA10123456784",
+    "status": "Delivered",
+    "delivery_timestamp": "2026-08-14T11:05:00Z",
+    "origin_scan_weight_lbs": 3.8,
+    "destination_scale_weight_lbs": 3.78,
+    "gps_match_address": true,
+    "carrier_exception_notes": "Delivered to porch with proof photo"
+  },
+  "ticket": {
+    "subject": "The box was EMPTY! Scam!",
+    "message": "I opened the box and there were only packing peanuts inside, no headphones! Refund my $420 immediately or I will contact my bank to initiate a chargeback.",
+    "photo_evidence_provided": true,
+    "photo_verified_defect": false
+  },
+  "ground_truth_verdict": {
+    "action": "REJECT_REFUND_ESCALATE_FRAUD",
+    "refund_amount": 0.0,
+    "return_shipment_required": false,
+    "restocking_fee": 0.0,
+    "policy_reasoning": "UPS destination scale weight at local delivery hub was 3.78 lbs, matching origin weight of 3.80 lbs. Package could not have been delivered empty. High historical return rate (66.7%). Deny instant refund and escalate to fraud investigation."
+  }
+}
